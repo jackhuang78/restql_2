@@ -1,5 +1,3 @@
-require('babel-core/register');
-
 import chai,{expect} from 'chai';
 import Restql from '../src/Restql';
 
