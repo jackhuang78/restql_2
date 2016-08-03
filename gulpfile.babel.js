@@ -13,7 +13,7 @@ gulp.task('lint', () => {
 
 gulp.task('test', ['lint'], () => {
 	let file = (argv.f != null) ? argv.f : '**/*';
-	return gulp.src(`spec/${file}.js`)
+	return gulp.src(`spec/${file}.spec.js`)
 		.pipe(mocha({grep: argv.grep}));
 });
 
