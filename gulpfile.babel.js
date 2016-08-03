@@ -10,7 +10,7 @@ gulp.task('default', () => {
 });
 
 gulp.task('lint', () => {
-	return gulp.src(['src/**/*.js', 'spec/**/*.js', './*.js'])
+	return gulp.src(['src/**/*.js', 'spec/**/*.js', './*.js', './\.*'])
 		.pipe(eslint())
 		.pipe(eslint.format())
 		.pipe(eslint.failAfterError());
