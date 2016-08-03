@@ -1,12 +1,12 @@
 require('babel-core/register');
 
 import chai,{expect} from 'chai';
-import RestQL from '../src/RestQL';
+import Restql from '../src/Restql';
 
-describe('# RestQL', () => {
+describe('# Restql', () => {
 	describe('# constructor', () => {
 		it('should create RestQL instance', () => {
-			//expect(new RestQL()).to.be.not.null;
+			expect(new Restql()).to.be.not.null;
 		});
 	});
 });

@@ -1,7 +1,7 @@
-class RestQL {
+class Restql {
 	constructor(paths, headers, body) {
 
 	}
 }
 
-export default RestQL;
+export default Restql;
