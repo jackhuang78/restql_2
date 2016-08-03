@@ -1,5 +1,5 @@
 import chai,{expect} from 'chai';
-import RestQL from '../src/RestQL';
+//import RestQL from '../src/RestQL';
 
 console.log(__filename);
 console.log(__dirname);
