@@ -1,6 +1,8 @@
 import chai,{expect} from 'chai';
 
-import RestQL from './src/RestQL';
+console.log('wd: ' + process.cwd());
+
+import RestQL from '../src/RestQL';
 
 describe('# RestQL', () => {
 	describe('# constructor', () => {
