@@ -1,9 +1,7 @@
 class RestQL {
-	constructor() {
+	constructor(url, headers, body) {
 
 	}
-
-	
 }
 
 export default RestQL;
