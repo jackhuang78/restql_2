@@ -1,5 +1,5 @@
-#RestQL
-[![Build Status](https://travis-ci.org/jhuang78/restify.svg)](https://travis-ci.org/jhuang78/restify) 
+#Restql
+[![Build Status](https://travis-ci.org/jhuang78/restify.svg)](https://travis-ci.org/jhuang78/restql) 
 
 
 
