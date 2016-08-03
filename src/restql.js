@@ -1,5 +1,5 @@
 class RestQL {
-	constructor(url, headers, body) {
+	constructor(paths, headers, body) {
 
 	}
 }

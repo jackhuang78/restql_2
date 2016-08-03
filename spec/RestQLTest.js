@@ -2,7 +2,7 @@ import chai,{expect} from 'chai';
 
 console.log('wd: ' + process.cwd());
 
-//import RestQL from '../src/RestQL';
+import RestQL from 'RestQL';
 
 describe('# RestQL', () => {
 	describe('# constructor', () => {
