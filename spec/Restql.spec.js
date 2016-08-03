@@ -3,7 +3,7 @@ import Restql from '../src/Restql';
 
 describe('# Restql', () => {
 	describe('# constructor', () => {
-		it('should create Restql instance', () => {
+		it('should create empty Restql instance', () => {
 			expect(new Restql()).to.be.not.null;
 		});
 	});
