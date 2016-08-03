@@ -1,6 +1,6 @@
 import chai,{expect} from 'chai';
 
-import RestQL from '../src/RestQL';
+import RestQL from './src/RestQL';
 
 describe('# RestQL', () => {
 	describe('# constructor', () => {
