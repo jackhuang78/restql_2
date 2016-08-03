@@ -1,8 +1,7 @@
-import chai,{expect} from 'chai';
-//import RestQL from '../src/RestQL';
+require('babel-core/register');
 
-console.log(__filename);
-console.log(__dirname);
+import chai,{expect} from 'chai';
+import RestQL from '../src/RestQL';
 
 describe('# RestQL', () => {
 	describe('# constructor', () => {
