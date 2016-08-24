@@ -44,12 +44,14 @@ describe('# Restql', () => {
 
 		it('should parse query with conditional operator', () => {
 			expect(restql.parseQueryParams({
-				f1:'==1', 
+				f1:'=1', 
 				f2:'!=2', 
 				f3:'>3', 
 				f4:'>=4', 
 				f5:'<5', 
 				f6:'<=6',
+				f7:'~7',
+				f8:'!~8',
 			})).to.deep.equal({
 				f1:[CondOp.EQ,'1'], 
 				f2:[CondOp.NE,'2'], 
@@ -57,6 +59,8 @@ describe('# Restql', () => {
 				f4:[CondOp.GE,'4'],
 				f5:[CondOp.LT,'5'], 
 				f6:[CondOp.LE,'6'],
+				f7:[CondOp.LK,'7'],
+				f8:[CondOp.NL,'8'],
 			});
 		});
 	});
