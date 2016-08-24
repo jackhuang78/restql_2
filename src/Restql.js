@@ -33,11 +33,7 @@ class Restql {
 		let obj = {};
 
 		for(let field in queryParams) {
-			let value = queryParams[field];
-			let condOp = null;
-
-			[condOp, value] = CondOp.parse(value);
-
+			let [condOp, value] = CondOp.parse(queryParams[field]);
 
 			switch(value) {
 				case '':

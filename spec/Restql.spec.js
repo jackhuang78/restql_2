@@ -19,12 +19,12 @@ describe('# Restql', () => {
 				f1:'1', 
 				f2:'', 
 				f3:'null', 
-				f4:'undefined'
+				f4:'undefined',
 			})).to.deep.equal({
 				f1:[CondOp.EQ,'1'], 
 				f2:[CondOp.EQ,undefined], 
 				f3:[CondOp.EQ,null], 
-				f4:[CondOp.EQ,undefined]
+				f4:[CondOp.EQ,undefined],
 			});
 		});
 
@@ -33,12 +33,12 @@ describe('# Restql', () => {
 				f1:'"1"', 
 				f2:'""', 
 				f3:'"null"', 
-				f4:'"undefined"'
+				f4:'"undefined"',
 			})).to.deep.equal({
 				f1:[CondOp.EQ,'1'], 
 				f2:[CondOp.EQ,''], 
 				f3:[CondOp.EQ,'null'], 
-				f4:[CondOp.EQ,'undefined']
+				f4:[CondOp.EQ,'undefined'],
 			});
 		});
 
@@ -49,17 +49,15 @@ describe('# Restql', () => {
 				f3:'>3', 
 				f4:'>=4', 
 				f5:'<5', 
-				f6:'<=6'
+				f6:'<=6',
 			})).to.deep.equal({
 				f1:[CondOp.EQ,'1'], 
 				f2:[CondOp.NE,'2'], 
 				f3:[CondOp.GT,'3'], 
 				f4:[CondOp.GE,'4'],
 				f5:[CondOp.LT,'5'], 
-				f6:[CondOp.LE,'6']
+				f6:[CondOp.LE,'6'],
 			});
 		});
-
-		
 	});
 });
