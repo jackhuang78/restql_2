@@ -10,7 +10,7 @@ CondOp.initEnum({
 	LE: { sym: '<=' },
 	LT: { sym: '<'  }
 });
-CondOp.get = (sym) => {
+CondOp.parse = (sym) => {
 	switch(sym.substring(0,2)) {
 		case CondOp.EQ.sym: return [CondOp.EQ, sym.substring(2)];
 		case CondOp.NE.sym: return [CondOp.NE, sym.substring(2)];
@@ -36,7 +36,7 @@ class Restql {
 			let value = queryParams[field];
 			let condOp = null;
 
-			[condOp, value] = CondOp.get(value);
+			[condOp, value] = CondOp.parse(value);
 
 
 			switch(value) {
