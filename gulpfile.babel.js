@@ -3,6 +3,7 @@ import gulp from 'gulp';
 import mocha from 'gulp-mocha';
 import eslint from 'gulp-eslint';
 import {argv} from 'yargs';
+import LoggerFactory from './src/LoggerFactory';
 
 gulp.task('lint', () => {
 	return gulp.src(['src/**/*.js', 'spec/**/*.js', './*.js'])
@@ -13,6 +14,8 @@ gulp.task('lint', () => {
 
 gulp.task('test', ['lint'], () => {
 	let file = (argv.f != null) ? argv.f : '**/*';
+	if(argv.d != null)
+		LoggerFactory.setLevel(this, 'debug');
 	return gulp.src(`spec/${file}.spec.js`)
 		.pipe(mocha({grep: argv.grep}));
 });

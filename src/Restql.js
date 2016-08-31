@@ -1,5 +1,7 @@
+import util from 'util';
 import {expect} from 'chai';
 import {Enum} from 'enumify';
+import LoggerFactory from './LoggerFactory.js';
 
 class CondOp extends Enum {}
 CondOp.initEnum({
@@ -30,14 +32,24 @@ CondOp.parse = (sym) => {
 
 class Restql {
 	constructor() {
-		
+		this.logger = LoggerFactory.getLogger(this);
 	}
 
 	parseQueryParams(queryParams) {
+		//this.logger.verbose(`parse ${util.inspect(queryParams)}`);	
+
 		let obj = {};
 
 		for(let field in queryParams) {
-			let [condOp, value] = CondOp.parse(queryParams[field]);
+			//console.log(`parsing ${queryParams[field]}`);
+
+			let [condOp, value] = CondOp.parse(queryParams[field].trim());
+
+			let m = value.match(/({.*})/);
+			if(m != null) {
+				obj[field] = [condOp, this.parseQueryParams(m[1])];
+				continue;
+			}
 
 			switch(value) {
 				case '':

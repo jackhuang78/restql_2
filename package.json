@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "chai": "^3.5.0",
-    "enumify": "^1.0.4"
+    "enumify": "^1.0.4",
+    "winston": "^2.2.0"
   }
 }
