@@ -36,14 +36,22 @@ class Restql {
 	}
 
 	parseQueryParams(queryParams) {
-		//this.logger.verbose(`parse ${util.inspect(queryParams)}`);	
+		this.logger.debug(util.inspect(queryParams));
 
-		let obj = {};
+		let root = {};
 
-		for(let field in queryParams) {
-			//console.log(`parsing ${queryParams[field]}`);
+		for(let fullname in queryParams) {
+			let path = fullname.split('.');
+			let field = path.splice(-1);
 
-			let [condOp, value] = CondOp.parse(queryParams[field].trim());
+			let obj = root;
+			for(let p of path) {
+				if(obj[p] == null)
+					obj[p] = {};
+				obj = obj[p];
+			}
+
+			let [condOp, value] = CondOp.parse(queryParams[fullname].trim());
 
 			let m = value.match(/({.*})/);
 			if(m != null) {
@@ -69,7 +77,7 @@ class Restql {
 			
 		}
 
-		return obj;
+		return root;
 	}
 }
 

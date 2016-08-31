@@ -52,15 +52,18 @@ describe('# Restql', () => {
 			});
 		});
 
-		// it('should query with nested query', () => {
-		// 	expect(restql.parseQueryParams({
-		// 		f1:'{f11=1&f12=2}'
-		// 	})).to.deep.equal({
-		// 		f1:[CondOp.EQ,{
-		// 			f11:[CondOp.EQ,'1'],
-		// 			f12:[CondOp.EQ,'2'],
-		// 		}]
-		// 	});
-		// });
+		it('should query with nested query', () => {
+			expect(restql.parseQueryParams(querystring.parse(
+				'f1=1&f2.f21=21&f2.f22.f221=221'
+			))).to.deep.equal({
+				f1:[CondOp.EQ,'1'],
+				f2:{
+					f21:[CondOp.EQ,'21'],
+					f22:{
+						f221:[CondOp.EQ,'221'],
+					}
+				}
+			});
+		});
 	});
 });
