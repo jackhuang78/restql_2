@@ -52,7 +52,7 @@ describe('# Restql', () => {
 			});
 		});
 
-		it('should query with nested query', () => {
+		it('should parse query with nested field', () => {
 			expect(restql.parseQueryParams(querystring.parse(
 				'f1=1&f2.f21=21&f2.f22.f221=221'
 			))).to.deep.equal({
@@ -63,6 +63,14 @@ describe('# Restql', () => {
 						f221:[CondOp.EQ,'221'],
 					}
 				}
+			});
+		});
+
+		it.skip('should parse query with multiple operators', () => {
+			expect(restql.parseQueryParams(querystring.parse(
+				'f1==1,=2,=3&f2=<4,>5'
+			))).to.deep.equal({
+				f1:[[CondOp.EQ,'1'], [CondOp.EQ,'2']]
 			});
 		});
 	});

@@ -13,6 +13,8 @@ CondOp.initEnum({
 	LT: { sym: '<'  },
 	LK: { sym: '~'  },
 	NL: { sym: '!~' },
+	OR: { sym: '|'},
+	AND: { sym: ','}
 });
 CondOp.parse = (sym) => {
 	switch(sym.substring(0,2)) {
@@ -31,10 +33,43 @@ CondOp.parse = (sym) => {
 };
 
 class Restql {
-	constructor() {
+	/**
+	 * Create a Restql object
+	 * @param  {Connector} connector a connector
+	 * @return {Restql}           restql
+	 */
+	constructor(connector) {
 		this.logger = LoggerFactory.getLogger(this);
+		this.connector = connector;
 	}
 
+	/**
+	 * asdf
+	 * @param  {String} type  asdf
+	 * @param  {Object} items asdf
+	 * @return {Number}       asdf
+	 */
+	async create(type, items) {
+		return this.connector.create(type, items);
+	}
+
+	// async read(type, query) {
+	// 	return this.connector.create(type, items);
+	// }
+
+	// async update(type, query, items) {
+	// 	return this.connector.create(type, items);
+	// }
+
+	// async delete(type, query) {
+	// 	return this.connector.create(type, items);
+	// }
+
+	/**
+	 * parse
+	 * @param  {Object} queryParams query
+	 * @return {Object}             parsed
+	 */
 	parseQueryParams(queryParams) {
 		this.logger.debug(util.inspect(queryParams));
 
