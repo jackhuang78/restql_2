@@ -1,5 +1,5 @@
 require('babel-core/register');
-require("babel-polyfill");
+require('babel-polyfill');
 import gulp from 'gulp';
 import mocha from 'gulp-mocha';
 import eslint from 'gulp-eslint';
